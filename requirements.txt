@@ -1,2 +1,2 @@
-tweepy=="*"
-nltk=="*"
+tweepy=="3.6"
+nltk=="3.3"
