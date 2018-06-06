@@ -1,7 +1,7 @@
 from __future__ import with_statement
 
 import feedparser
-import contextlib
+import contextlib2
 from urllib.parse import urlencode
 from urllib.request import urlopen
 
@@ -9,7 +9,7 @@ from urllib.request import urlopen
 def make_tiny(url):
     request_url = ('http://tinyurl.com/api-create.php?' +
                    urlencode({'url':url}))
-    with contextlib.closing(urlopen(request_url)) as response:
+    with contextlib2.closing(urlopen(request_url)) as response:
         return response.read().decode('utf-8')
 
 
