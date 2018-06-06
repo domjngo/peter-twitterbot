@@ -1,5 +1,5 @@
 # Peter Quill Twitter bot @starlord_p
-# https://twitter.com/starlord_p/
+# Twitter: https://twitter.com/starlord_p/
 
 from nltk.chat.util import Chat, reflections
 import tweepy
