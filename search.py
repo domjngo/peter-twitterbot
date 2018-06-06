@@ -49,6 +49,7 @@ def search_guides(query):
             n += 1
 
     if results:
+        print(results)
         top_result = max(results, key=lambda x: x[0])
         guide = top_result[1]
         guide_url = make_tiny(top_result[2])
