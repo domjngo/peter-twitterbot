@@ -3,4 +3,4 @@ nltk<=3.2.5
 tweepy<=3.6.0
 urllib3<=1.22
 contextlib2<=0.5.5
-urllib<=2.28.1
+urllib<=2.26.0
