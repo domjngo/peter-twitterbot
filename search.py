@@ -48,10 +48,12 @@ def search_guides(query):
 
             n += 1
 
-    top_result = max(results, key=lambda x: x[0])
-    guide = top_result[1]
-    guide_url = make_tiny(top_result[2])
-    print('{} {}'.format(guide, guide_url))
+    if results:
+        top_result = max(results, key=lambda x: x[0])
+        guide = top_result[1]
+        guide_url = make_tiny(top_result[2])
+        print('{} {}'.format(guide, guide_url))
+        return '{} {}'.format(guide, guide_url)
 
-    return '{} {}'.format(guide, guide_url)
+    return False
 
