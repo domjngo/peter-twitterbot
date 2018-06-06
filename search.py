@@ -22,7 +22,7 @@ def contains_wanted(query, in_str):
     return i
 
 
-def guides(query):
+def search_guides(query):
     rss = 'http://www.nationalarchives.gov.uk/category/records-2/feed/'
     feed = feedparser.parse(rss)
     results = []
@@ -30,7 +30,6 @@ def guides(query):
 
     for key in feed["entries"]:
         url = key['link'].replace('livelb', 'www')
-        url = make_tiny(url)
         title = key['title']
         content = key['content'][0]['value']
         c = contains_wanted(query, content.lower())
@@ -50,7 +49,9 @@ def guides(query):
             n += 1
 
     top_result = max(results, key=lambda x: x[0])
-    print('{} {}'.format(top_result[1], top_result[2]))
+    guide = top_result[1]
+    guide_url = make_tiny(top_result[2])
+    print('{} {}'.format(guide, guide_url))
 
-    return '{} {}'.format(top_result[1], top_result[2])
+    return '{} {}'.format(guide, guide_url)
 
