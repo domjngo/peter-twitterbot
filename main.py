@@ -24,7 +24,7 @@ def reply(auth, tweet):
         username = tweet.user.screen_name
         text = tweet.text
         text = text.replace('@starlord_p ', '')
-        if "would like to know" in text:
+        if 'like to know' in text:
             text = text.replace('I would like to know', '')
             text = remove_stop_words(text)
             print(text)
