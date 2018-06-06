@@ -1,6 +1,6 @@
-feedparser==5.2.1
-nltk==3.2.5
-tweepy==3.6.0
-urllib3==1.22
+feedparser<=5.2.1
+nltk<=3.2.5
+tweepy<=3.6.0
+urllib3<=1.22
 contextlib
 urllib
