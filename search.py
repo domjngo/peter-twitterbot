@@ -18,12 +18,13 @@ def contains_wanted(query, in_str):
     i = 0
     for wrd in query:
         if wrd.lower() in in_str:
-            i += 1
+            n = in_str.lower().split().count(wrd)
+            i += n
     return i
 
 
 def search_guides(query):
-    rss = 'http://www.nationalarchives.gov.uk/category/records-2/feed/'
+    rss = 'data.xml'
     feed = feedparser.parse(rss)
     results = []
     n = 0
@@ -49,7 +50,6 @@ def search_guides(query):
             n += 1
 
     if results:
-        print(results)
         top_result = max(results, key=lambda x: x[0])
         guide = top_result[1]
         guide_url = make_tiny(top_result[2])
