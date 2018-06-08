@@ -18,7 +18,7 @@ def contains_wanted(query, in_str):
     i = 0
     for wrd in query:
         if wrd.lower() in in_str:
-            n = in_str.lower().split().count(wrd.lower())
+            n = in_str.lower().split().count(wrd)
             i += n
     return i
 
@@ -35,7 +35,7 @@ def search_guides(query):
         content = key['content'][0]['value']
         c = contains_wanted(query, content.lower())
         t = contains_wanted(query, title.lower())
-        i = c + (t*3)
+        i = c + (t*2)
 
         if i > 0:
             result = '{} - {} - {}'.format(i, title, url)
