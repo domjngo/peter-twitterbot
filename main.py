@@ -29,7 +29,6 @@ def reply(auth, tweet):
             text = remove_stop_words(text)
             print(text)
             result = search.search_guides(text)
-            print(result)
             if result:
                 api.update_status("@" + username + " Maybe this guide would help: " + result, in_reply_to_status_id=tweetId)
             else:
