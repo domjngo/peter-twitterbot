@@ -3,6 +3,7 @@ from nltk.corpus import stopwords
 import tweepy
 import pairs
 import search
+import summarize
 
 
 def remove_stop_words(text):
@@ -27,7 +28,9 @@ def reply(auth, tweet):
             else:
                 api.update_status("@" + username + "I'm not sure how to help with that", in_reply_to_status_id=tweetId)
         elif 'tweet something about' in text:
-            print(text)
+            tweet = summarize.compile_tweet(text)
+            print(tweet)
+            api.update_status(status=tweet)
         else:
             phrase = Chat(pairs.eliza(), reflections).respond(text)
             api.update_status("@" + username + " " + phrase, in_reply_to_status_id=tweetId)
