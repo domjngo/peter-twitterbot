@@ -1,4 +1,5 @@
 import re
+import nltk
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from nltk.tokenize import word_tokenize, sent_tokenize
@@ -8,6 +9,8 @@ from string import punctuation
 from collections import defaultdict
 from heapq import nlargest
 import link
+
+nltk.data.path.append('./nltk_data/')
 
 
 def compile_tweet(text):
