@@ -1,16 +1,7 @@
 from __future__ import with_statement
 
 import feedparser
-import contextlib2
-from urllib.parse import urlencode
-from urllib.request import urlopen
-
-
-def make_tiny(url):
-    request_url = ('http://tinyurl.com/api-create.php?' +
-                   urlencode({'url':url}))
-    with contextlib2.closing(urlopen(request_url)) as response:
-        return response.read().decode('utf-8')
+import link
 
 
 def contains_wanted(query, in_str):
@@ -52,7 +43,7 @@ def search_guides(query):
     if results:
         top_result = max(results, key=lambda x: x[0])
         guide = top_result[1]
-        guide_url = make_tiny(top_result[2])
+        guide_url = link.make_tiny(top_result[2])
         print('{} {}'.format(guide, guide_url))
         return '{} {}'.format(guide, guide_url)
 

@@ -3,3 +3,5 @@ nltk<=3.2.5
 tweepy<=3.6.0
 urllib3<=1.22
 contextlib2<=0.5.5
+beautifulsoup4<=4.6.0
+bs4<=0.0.1
