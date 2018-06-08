@@ -15,8 +15,7 @@ def compile_tweet(text):
     summary = summarize_article(url).strip('.')
     tags = get_tags(url)
     tiny_url = link.make_tiny(url)
-    print(summary + ' ' + tiny_url + tags)
-    return summary + ' ' + tiny_url + tags
+    return summary + tags + ' ' + tiny_url
 
 
 def get_url(text):

@@ -12,8 +12,7 @@ class Listener(StreamListener):
 
     def on_status(self, data):
         print(data)
-        if '@starlord_p' in data:
-            tweet.reply(auth, data)
+        tweet.reply(auth, data)
         return (True)
 
     def on_error(self, status):
