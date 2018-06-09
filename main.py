@@ -24,5 +24,5 @@ if __name__ == '__main__':
     auth.set_access_token(os.environ['A_TOKEN'], os.environ['A_TOKEN_SECRET'])
 
     twitterStream = Stream(auth, Listener())
-    twitterStream.filter(track=["@starlord_p", "#theguardian"])
+    twitterStream.filter(track=["@starlord_p", "#theguardian", "#politics"])
 
