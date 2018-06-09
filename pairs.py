@@ -194,12 +194,11 @@ def eliza():
 
         (r'(.*)',
          ("Please tell me more.",
-          "Let's change focus a bit... Tell me about your family.",
           "Can you elaborate on that?",
           "Why do you say that %1?",
           "I see.",
           "Very interesting.",
-          "%1.",
+          "%1",
           "I see.  And what does that tell you?",
           "How does that make you feel?",
           "How do you feel when you say that?"))

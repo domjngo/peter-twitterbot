@@ -4,6 +4,7 @@ import tweepy
 import pairs
 import search
 import summarize
+import time
 
 
 def remove_stop_words(text):
@@ -36,6 +37,7 @@ def reply(auth, tweet):
             api.update_status("@" + username + " " + phrase, in_reply_to_status_id=tweetId)
             print("Tweet : " + text)
             print("Replied with : " + phrase)
+            time.sleep(300)
     except tweepy.TweepError as e:
         print(e.reason)
 
