@@ -2,6 +2,12 @@ from __future__ import with_statement
 
 import feedparser
 import link
+from nltk.corpus import stopwords
+
+
+def remove_stop_words(text):
+    stop_words = stopwords.words("english")
+    return ' '.join([word for word in text.split() if word not in stop_words])
 
 
 def contains_wanted(query, in_str):
@@ -15,6 +21,7 @@ def contains_wanted(query, in_str):
 
 
 def search_guides(query):
+    query = remove_stop_words(query)
     rss = 'data.xml'
     feed = feedparser.parse(rss)
     results = []
@@ -24,9 +31,15 @@ def search_guides(query):
         url = key['link'].replace('livelb', 'www')
         title = key['title']
         content = key['content'][0]['value']
+        cat = [t.term for t in key.get('tags', [])]
+        if 'Help with your research' in cat:
+            cat.remove('Help with your research')
+        print(cat)
+        categories = ' '.join(cat)
         c = contains_wanted(query, content.lower())
         t = contains_wanted(query, title.lower())
-        i = c + (t*3)
+        g = contains_wanted(query, categories.lower())
+        i = c + (t*3) + (g*3)
 
         if i > 0:
             result = '{} - {} - {}'.format(i, title, url)
