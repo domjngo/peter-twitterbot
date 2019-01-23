@@ -5,3 +5,5 @@ keys.py
 *.pyc
 /cab
 /data
+/.idea
+/venv
